@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uploaded: 2015-12-18 15:44:04
+  url: MyString
+  score: 1
+
+two:
+  uploaded: 2015-12-18 15:44:04
+  url: MyString
+  score: 1
