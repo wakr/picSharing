@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+
 <p>
   <strong>Uploaded:</strong>
   <%= @picture.uploaded %>
@@ -17,8 +19,12 @@
 
 
 <p>
-  <img src="data:image/png;base64,<%=@picture.data%>" />
+  <img src="data:image/png;base64,<%=@picture.data%>" class="img-responsive"/>
 </p>
 
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+
+  <% @picture.comments.each do |comment| %>
+
+  <% end %>
+
+</div>

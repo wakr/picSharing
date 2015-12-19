@@ -8,5 +8,4 @@ has_many :comments
   end
 
 
-
 end
