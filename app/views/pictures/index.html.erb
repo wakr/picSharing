@@ -12,6 +12,7 @@
             <%= link_to picture_url(picture.url) do %>
             <%= image_tag picture.image.url(:thumb), class: 'img-responsive center-block' %>
                 <% end %>
+            <%=picture.image_content_type%>
           </div>
       <% end %>
 

@@ -21,6 +21,10 @@
       <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="data" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="image_file_name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="image_content_type" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="image_file_size" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="image_updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <primary-key columns="id"/>
     </table>
     <table name="schema_migrations" schema="" catalog="" type="TABLE">

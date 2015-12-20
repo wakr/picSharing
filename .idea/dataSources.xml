@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2895190601">
+  <component name="DataSourceManagerImpl" format="xml" hash="1514921635">
     <data-source source="LOCAL" name="Rails picService: development" uuid="0a7a83a7-a5fb-46e1-9ddd-49d4418397a7">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
