@@ -27,11 +27,11 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
 
-    @picture = Picture.new
+    @picture = Picture.new(picture_params)
 
-    file_params = params['upload']
-    file_name = file_params['datafile'].original_filename
-    contents = open(file_params['datafile'].tempfile).read
+    file_params = params['picture']
+    file_name = file_params['image'].original_filename
+    contents = open(file_params['image'].tempfile).read
 
     b64 = ::Firebase_app.encode(contents)
     file_name = ::Firebase_app.form_name(file_name)
@@ -39,8 +39,6 @@ class PicturesController < ApplicationController
 
     @picture.url = file_name
     @picture.data = b64
-    picture_data = {:name => @picture.url, :data => b64}
-    #::Firebase_app.push(picture_data)
 
 
     respond_to do |format|
@@ -54,19 +52,6 @@ class PicturesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pictures/1
-  # PATCH/PUT /pictures/1.json
-  def update
-    respond_to do |format|
-      if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
-        format.json { render :show, status: :ok, location: @picture }
-      else
-        format.html { render :edit }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /pictures/1
   # DELETE /pictures/1.json
@@ -87,6 +72,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:uploaded, :url, :score)
+      params.require(:picture).permit(:image, :uploaded, :url, :score)
     end
 end

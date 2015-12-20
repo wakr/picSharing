@@ -39,14 +39,12 @@
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
       <div class="form-group">
-    <%= form_tag({:action => 'create', :controller => 'pictures'}, :multipart => true) do %>
-        <p>
-          <label for="upload_file">Select your image</label>
-          <%= file_field 'upload', 'datafile' %>
-        </p>
-            <p class="help-block">Upload your image and copy the link to show it to others.</p>
-        <%= submit_tag 'Upload' %>
-    <% end %>
+
+
+      <%= bootstrap_form_for(Picture.new) do |f| %>
+      <%= f.file_field :image %>
+          <%= f.submit 'Upload' %>
+      <% end %>
       </div>
     </div>
     <div class="col-sm-4"></div>
