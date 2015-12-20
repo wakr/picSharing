@@ -19,27 +19,22 @@ class PicturesController < ApplicationController
     @picture = Picture.new
   end
 
-  # GET /pictures/1/edit
-  def edit
-  end
-
   # POST /pictures
   # POST /pictures.json
   def create
+
+    if !params['picture'].present?
+      redirect_to :back
+      return
+    end
 
     @picture = Picture.new(picture_params)
 
     file_params = params['picture']
     file_name = file_params['image'].original_filename
-    contents = open(file_params['image'].tempfile).read
-
-    b64 = ::Firebase_app.encode(contents)
     file_name = ::Firebase_app.form_name(file_name)
 
-
     @picture.url = file_name
-    #@picture.data = b64 takes a lot of space?
-
 
     respond_to do |format|
       if @picture.save
