@@ -10,36 +10,12 @@
       <% @pictures.each do |picture| %>
           <div class="col-lg-3 col-md-4 col-xs-6 thumbnail">
             <%= link_to picture_url(picture.url) do %>
-            <%= image_tag picture.image.url(:thumb), class: 'img-responsive center-block' %>
-                <% end %>
-            <%=picture.image_content_type%>
+                <%= image_tag picture.image.url(:thumb), class: 'img-responsive center-block' %>
+            <% end %>
+            <%= picture.image_content_type %>
           </div>
       <% end %>
 
-
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th>Uploaded</th>
-          <th>Url</th>
-          <th>Score</th>
-          <th colspan="3"></th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <% @pictures.each do |picture| %>
-            <tr>
-              <td><%= picture.created_at %></td>
-              <td><%= picture.url %></td>
-              <td><%= picture.score %></td>
-              <td><%= link_to 'Show', "/pictures/#{picture.url}" %></td>
-              <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-              <td><%= link_to 'Destroy', "/pictures/#{picture.url}", method: :delete, data: {confirm: 'Are you sure?'} %></td>
-            </tr>
-        <% end %>
-        </tbody>
-      </table>
     </div>
     <div class="col-sm-2"></div>
   </div>
