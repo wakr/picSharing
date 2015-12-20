@@ -29,9 +29,17 @@
           <br>
           <dt>Size:</dt>
           <dd><%=@picture.image_file_size%> bytes</dd>
-          <br>
         </dl>
       </div>
+      <% @picture.comments.each do |comment| %>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <b><%= comment.text %></b>
+              <br>
+              <%= comment.created_at.strftime("%d.%m.%y - %H:%M") %>
+            </div>
+          </div>
+      <% end %>
       <%= bootstrap_form_for(Comment.new) do |f| %>
           <%= f.text_area :text %>
           <%= f.hidden_field :picture_id, :value => @picture.id %>
@@ -44,16 +52,6 @@
   <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-      <% @picture.comments.each do |comment| %>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <b><%= comment.text %></b>
-              <br>
-              <%= comment.created_at.strftime("%d.%m.%y - %H:%M") %>
-            </div>
-          </div>
-      <% end %>
-
     </div>
     <div class="col-sm-4"></div>
   </div>

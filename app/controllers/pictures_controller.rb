@@ -38,7 +38,7 @@ class PicturesController < ApplicationController
 
 
     @picture.url = file_name
-    @picture.data = b64
+    #@picture.data = b64 takes a lot of space?
 
 
     respond_to do |format|

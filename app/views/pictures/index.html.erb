@@ -1,11 +1,20 @@
-
-
 <div class="container">
   <div class="row">
+
+
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
 
-      <h1>Listing Pictures</h1>
+      <h1>Gallery</h1>
+
+      <% @pictures.each do |picture| %>
+          <div class="col-lg-3 col-md-4 col-xs-6 thumbnail">
+            <%= link_to picture_url(picture.url) do %>
+            <%= image_tag picture.image.url(:thumb), class: 'img-responsive center-block' %>
+                <% end %>
+          </div>
+      <% end %>
+
 
       <table class="table table-hover">
         <thead>
@@ -36,18 +45,21 @@
 
 
   <div class="row">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4">
-      <div class="form-group">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="panel">
+        <div class="form-group">
+          <div class="panel-body">
 
-
-      <%= bootstrap_form_for(Picture.new) do |f| %>
-      <%= f.file_field :image %>
-          <%= f.submit 'Upload' %>
-      <% end %>
+            <%= bootstrap_form_for(Picture.new) do |f| %>
+                <%= f.file_field :image %>
+                <%= f.submit 'Upload' %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-2"></div>
   </div>
 
 </div>
