@@ -10,24 +10,28 @@
   </div>
 
   <div class="row">
-    <p>
-      <%= image_tag @picture.image.url %>
-    </p>
+    <div class="gallery_view">
+      <p>
+        <%= link_to @picture.image.url do %>
+            <%= image_tag @picture.image.url %>
+        <% end %>
+      </p>
+    </div>
   </div>
   <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
       <div class="well">
-          <dl>
-            <dt>Name:</dt>
-            <dd><%= @picture.image_file_name %></dd>
-            <br>
-            <dt>Type:</dt>
-            <dd><%= @picture.image_content_type %></dd>
-            <br>
-            <dt>Size:</dt>
-            <dd><%= @picture.image_file_size %> bytes</dd>
-          </dl>
+        <dl>
+          <dt>Name:</dt>
+          <dd><%= @picture.image_file_name %></dd>
+          <br>
+          <dt>Type:</dt>
+          <dd><%= @picture.image_content_type %></dd>
+          <br>
+          <dt>Size:</dt>
+          <dd><%= @picture.image_file_size %> bytes</dd>
+        </dl>
       </div>
       <% @picture.comments.each do |comment| %>
           <div class="panel panel-default">

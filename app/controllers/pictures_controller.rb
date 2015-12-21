@@ -32,7 +32,7 @@ class PicturesController < ApplicationController
 
     file_params = params['picture']
     file_name = file_params['image'].original_filename
-    file_name = ::Firebase_app.form_name(file_name)
+    file_name = ::EncodeUtils.form_name(file_name)
 
     @picture.url = file_name
 

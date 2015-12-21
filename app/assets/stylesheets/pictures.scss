@@ -1,3 +1,17 @@
 // Place all the styles related to the Pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.gallery {
+  :hover{
+    background-color: #BBEAFF;
+  }
+  margin-bottom: 2%;
+  padding: 4px;
+}
+
+.gallery_view{
+  margin-top: 2%;
+  margin-bottom: 4%;
+  padding: 4px;
+}

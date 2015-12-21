@@ -1,7 +1,6 @@
 require 'base64'
 require 'digest/md5'
-class Firebase_app
-
+class EncodeUtils
 
   def self.encode(content)
     return Base64.strict_encode64(content)
@@ -14,6 +13,5 @@ class Firebase_app
   def self.form_name(name)
       return Digest::MD5.hexdigest(name + "#{('a'..'z').to_a.shuffle[0,3].join}")[0..7]
   end
-
 
 end

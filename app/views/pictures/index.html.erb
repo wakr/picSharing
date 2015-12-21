@@ -5,14 +5,16 @@
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
 
-      <h1>Gallery</h1>
+      <div class="page-header">
+        <h1>Hour Gallery <span class="glyphicon glyphicon-globe"></span><small> One hour saves.</small></h1>
+      </div>
 
       <% @pictures.each do |picture| %>
-          <div class="col-lg-3 col-md-4 col-xs-6 thumbnail">
+          <div class="col-lg-3 col-md-4 col-xs-6 gallery">
             <%= link_to picture_url(picture.url) do %>
-                <%= image_tag picture.image.url(:thumb), class: 'img-responsive center-block' %>
+                <%= image_tag picture.image.url(:thumb), class: 'img-responsive center-block img-thumbnail', alt: 'asd' %>
             <% end %>
-            <%= picture.image_content_type %>
+
           </div>
       <% end %>
 
